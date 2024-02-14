@@ -1,10 +1,15 @@
 <?php
-	var_dump($_POST);
-	echo "<pre>";
-	print_r($_POST);
+	session_start();
 
 	if (empty($_POST["username"]) || empty($_POST["password"]))
 	{
-		echo("EMPTY");
+		header("Location: index.php");
+		exit();
 	}
+
+	$username = $_POST["username"];
+	$_SESSION["username"] = $username;
+
+	echo("Yo r logged in as $username");
+	header("Location: welcome.php");
 ?>
