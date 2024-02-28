@@ -3,10 +3,22 @@
 	if (empty($_SESSION["username"]))
 	{
 		echo "WRONG LOGIN KRONK";
+		exit();
 	}
 	else
 	{
 		$username = $_SESSION["username"];
-		echo("You are logged in as <b>$username</b>");
+		$password = $_SESSION["password"];
 	}
 ?>
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<head>
+		<meta charset="utf-8">
+		<title>Rotoor</title>
+	</head>
+	<body>
+
+	</body>
+</html>
