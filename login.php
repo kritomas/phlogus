@@ -1,19 +1,24 @@
-<?php
-	session_start();
-
-	if (empty($_POST["username"]) || empty($_POST["password"]))
-	{
-		header("Location: index.php");
-		exit();
-	}
-
-	$username = $_POST["username"];
-	$password = $_POST["password"];
-	$_SESSION["username"] = $username;
-	$_SESSION["password"] = $password;
-
-	$json = get_object_vars(json_decode(file_get_contents("admin.json")));
-	var_dump($json);
-	if ($json["username"] === $username && $json["password"] === $password) header("Location: admin.php");
-	else header("Location: welcome.php");
-?>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<head>
+		<meta charset="utf-8">
+		<title>Rotoor</title>
+	</head>
+	<body>
+		<form action="handle_login.php" method="post">
+			<ul>
+				<li>
+					<label for="username">Username:</label>
+					<input type="text" id="username" name="username"></input>
+				</li>
+				<li>
+					<label for="password">Password:</label>
+					<input type="password" id="password" name="password"></input>
+				</li>
+				<li>
+					<button type="submit">Submit</button>
+				</li>
+			</ul>
+		</form>
+	</body
+</html>

@@ -2,23 +2,22 @@
 <html lang="en" dir="ltr">
 	<head>
 		<meta charset="utf-8">
-		<title>Rotoor</title>
+		<title></title>
 	</head>
 	<body>
-		<form action="login.php" method="post">
-			<ul>
-				<li>
-					<label for="username">Username:</label>
-					<input type="text" id="username" name="username"></input>
-				</li>
-				<li>
-					<label for="password">Password:</label>
-					<input type="password" id="password" name="password"></input>
-				</li>
-				<li>
-					<button type="submit">Submit</button>
-				</li>
-			</ul>
-		</form>
-	</body
+		<header>
+			<a href="register.php">Register</a>
+			<a href="login.php">Log In</a>
+		</header>
+		<p>
+			WELKAM
+		</p>
+	</body>
 </html>
+
+
+<?php
+
+
+
+?>
