@@ -16,6 +16,8 @@ class DBC
 
     public static function getConnection()
     {
+		error_reporting(E_ALL);
+		ini_set('display_errors', 'on');
 		if (!self::$CREDENTIALS)
 		{
 			self::$CREDENTIALS = get_object_vars(json_decode(file_get_contents("sql_credentials.json")));
@@ -26,7 +28,7 @@ class DBC
 		}
 
         if (!self::$connection) {
-            self::$connection = mysqli_connect(self::$SERVER_IP, self::$USER, self::$PASSWORD);
+            self::$connection = mysqli_connect(self::$SERVER_IP, self::$USER, self::$PASSWORD, self::$DATABASE);
             if (!self::$connection) {
                 die('Could not connect to DB');
             }
@@ -44,6 +46,12 @@ class DBC
 
 	public static function createDB()
 	{
-		self::$connection->query("create database Usero");
+		self::getConnection()->query("create database Usero");
+	}
+	public static function initDB()
+	{
+		error_reporting(E_ALL);
+		ini_set('display_errors', 'on');
+		self::getConnection()->query("create table Account (id int primary key AUTO_INCREMENT, username varchar(32) not null, password varchar(30) not null);");
 	}
 }
