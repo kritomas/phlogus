@@ -16,6 +16,8 @@ class DBC
 
     public static function getConnection()
     {
+		error_reporting(E_ALL);
+		ini_set('display_errors', 'on');
 		if (!self::$CREDENTIALS)
 		{
 			self::$CREDENTIALS = get_object_vars(json_decode(file_get_contents("sql_credentials.json")));
@@ -26,16 +28,16 @@ class DBC
 		}
 
         if (!self::$connection) {
-            self::$connection = mysqli_connect(
-                self::$SERVER_IP,
-                self::$USER,
-                self::$PASSWORD,
-                self::$DATABASE
-            );
+			echo "CONNECTING";
+            self::$connection = mysqli_connect(self::$SERVER_IP, self::$USER, self::$PASSWORD);
+			echo "HELP";
             if (!self::$connection) {
+				echo "DEAD";
                 die('Could not connect to DB');
             }
         }
+		echo "CONNECTED";
+		var_dump(self::$connection);
         return self::$connection;
     }
 
