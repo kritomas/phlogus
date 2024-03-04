@@ -21,6 +21,6 @@
 require './DBC.php';
 
 $sup = DBC::getConnection();
-var_dump($sup);
+DBC::createDB();
 
 ?>
