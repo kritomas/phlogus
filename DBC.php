@@ -2,10 +2,11 @@
 
 class DBC
 {
-    public const SERVER_IP = "localhost";
-    public const USER = "root";
-    public const PASSWORD = "student";
-    public const DATABASE = "LoginTest";
+	private static $CREDENTIALS = null;
+    public static $SERVER_IP = null;
+    public static $USER = null;
+    public static $PASSWORD = null;
+    public static $DATABASE = null;
 
     private static $connection = null;
 
@@ -15,12 +16,21 @@ class DBC
 
     public static function getConnection()
     {
+		if (!self::$CREDENTIALS)
+		{
+			self::$CREDENTIALS = get_object_vars(json_decode(file_get_contents("sql_credentials.json")));
+		   	self::$SERVER_IP = self::$CREDENTIALS["ip"];
+		    self::$USER = self::$CREDENTIALS["user"];
+		    self::$PASSWORD = self::$CREDENTIALS["password"];
+		    self::$DATABASE = self::$CREDENTIALS["database"];
+		}
+
         if (!self::$connection) {
             self::$connection = mysqli_connect(
-                self::SERVER_IP,
-                self::USER,
-                self::PASSWORD,
-                self::DATABASE
+                self::$SERVER_IP,
+                self::$USER,
+                self::$PASSWORD,
+                self::$DATABASE
             );
             if (!self::$connection) {
                 die('Could not connect to DB');

@@ -18,6 +18,9 @@
 
 <?php
 
+require './DBC.php';
 
+$sup = DBC::getConnection();
+var_dump($sup);
 
 ?>
