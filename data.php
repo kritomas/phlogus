@@ -22,7 +22,8 @@ echo '
 		<a href="index.php">Home</a>
 		Logged in as <b>' . $_SESSION["username"] . '</b>
 		<a href="handle_logout.php">Log Out</a>
-	</header>';
+	</header>
+	<p>';
 $query = DBC::getConnection()->query("select username, password from Account;");
 if ($query->num_rows > 0)
 {
@@ -31,7 +32,7 @@ if ($query->num_rows > 0)
 		echo "Username:  <b>". $row["username"]. "</b>, Password: <b>" . $row["password"] . "</b><br>";
 	}
 }
-echo '
+echo '</p>
 	</body>
 </html>
 ';

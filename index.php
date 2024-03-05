@@ -25,7 +25,7 @@ if (!empty($_SESSION["username"]))
 echo '
 		</header>
 		<p>
-			WELKAM
+			WELKAM to Usero. Here we make users and keep track of users and account and all those weird usery user things.
 		</p>
 	</body>
 </html>
