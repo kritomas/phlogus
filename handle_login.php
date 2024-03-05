@@ -19,6 +19,6 @@
 	$password = $_POST["password"];
 	$_SESSION["username"] = $username;
 	$_SESSION["password"] = $password;
-	
-	header("Location: welcome.php");
+
+	header("Location: index.php");
 ?>
