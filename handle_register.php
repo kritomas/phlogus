@@ -16,8 +16,5 @@
 	$_SESSION["username"] = $username;
 	$_SESSION["password"] = $password;
 
-	$json = get_object_vars(json_decode(file_get_contents("admin.json")));
-	var_dump($json);
-	if ($json["username"] === $username && $json["password"] === $password) header("Location: admin.php");
-	else header("Location: welcome.php");
+	header("Location: welcome.php");
 ?>
