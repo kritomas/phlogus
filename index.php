@@ -27,6 +27,9 @@ echo '
 		<p>
 			WELKAM to Usero. Here we make users and keep track of users and account and all those weird usery user things.
 		</p>
+		<footer>
+			Usero 2024
+		</footer>
 	</body>
 </html>
 ';

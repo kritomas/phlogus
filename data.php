@@ -33,6 +33,9 @@ if ($query->num_rows > 0)
 	}
 }
 echo '</p>
+	<footer>
+		Usero 2024
+	</footer>
 	</body>
 </html>
 ';
