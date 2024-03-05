@@ -8,7 +8,8 @@ echo '
 <html lang="en" dir="ltr">
 	<head>
 		<meta charset="utf-8">
-		<title></title>
+		<link rel="stylesheet" href="./style.css">
+		<title>Usero</title>
 	</head>
 	<body>
 		<header>
@@ -16,7 +17,10 @@ echo '
 			<a href="login.php">Log In</a>';
 if (!empty($_SESSION["username"]))
 {
-	echo '<a href="data.php">Data</a>';
+	echo '<a href="data.php">Data</a>
+	Logged in as <b>' . $_SESSION["username"] . '</b>
+	<a href="handle_logout.php">Log Out</a>
+	';
 }
 echo '
 		</header>
@@ -26,8 +30,5 @@ echo '
 	</body>
 </html>
 ';
-
-$sup = DBC::getConnection();
-DBC::initDB();
 
 ?>

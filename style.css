@@ -1,0 +1,17 @@
+html {
+	padding: 0;
+	margin: 0;
+}
+body {
+	padding: 0;
+	margin: 0;
+}
+
+header {
+	padding: 20;
+	background-color: lightblue;
+}
+
+a {
+	margin: 5;
+}
