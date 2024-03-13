@@ -9,10 +9,11 @@
 		exit();
 	}
 
-	$query = DBC::getConnection()->query("insert into Account (username, password) values ('" . $_POST["username"] . "', '" . $_POST["password"] . "');");
+	$password = password_hash($_POST["password"], PASSWORD_DEFAULT);
+
+	$query = DBC::getConnection()->query("insert into Account (username, password) values ('" . $_POST["username"] . "', '" . $password . "');");
 
 	$username = $_POST["username"];
-	$password = $_POST["password"];
 	$_SESSION["username"] = $username;
 	$_SESSION["password"] = $password;
 

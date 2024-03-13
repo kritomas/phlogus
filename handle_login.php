@@ -9,14 +9,15 @@
 		exit();
 	}
 
-	$query = DBC::getConnection()->query("select username, password from Account where username = '" . $_POST["username"] . "' and password = '" . $_POST["password"] . "';");
+	$password = password_hash($_POST["password"], PASSWORD_DEFAULT);
+
+	$query = DBC::getConnection()->query("select username, password from Account where username = '" . $_POST["username"] . "' and password = '" . $password . "';");
 
 	if ($query->num_rows <= 0)
 	{
 		die("Unknown user");
 	}
 	$username = $_POST["username"];
-	$password = $_POST["password"];
 	$_SESSION["username"] = $username;
 	$_SESSION["password"] = $password;
 

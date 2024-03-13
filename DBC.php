@@ -52,6 +52,12 @@ class DBC
 	{
 		error_reporting(E_ALL);
 		ini_set('display_errors', 'on');
-		self::getConnection()->query("create table Account (id int primary key AUTO_INCREMENT, username varchar(32) not null unique, password varchar(30) not null);");
+		self::getConnection()->query("create table Account (id int primary key AUTO_INCREMENT, username varchar(32) not null unique, password varchar(256) not null);");
+	}
+	public static function delDB()
+	{
+		error_reporting(E_ALL);
+		ini_set('display_errors', 'on');
+		self::getConnection()->query("drop table Account;");
 	}
 }
