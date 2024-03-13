@@ -11,9 +11,12 @@
 
 	$password = password_hash($_POST["password"], PASSWORD_DEFAULT);
 
-	$query = DBC::getConnection()->query("insert into Account (username, password) values ('" . $_POST["username"] . "', '" . $password . "');");
-
+	$query = DBC::getConnection()->prepare("insert into Account (username, password) values (?, ?);");
+	$query->bind_param("ss", $username, $password);
 	$username = $_POST["username"];
+	$password = password_hash($_POST["password"], PASSWORD_DEFAULT);
+	$query->execute();
+
 	$_SESSION["username"] = $username;
 	$_SESSION["password"] = $password;
 

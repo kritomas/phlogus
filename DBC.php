@@ -60,4 +60,16 @@ class DBC
 		ini_set('display_errors', 'on');
 		self::getConnection()->query("drop table Account;");
 	}
+
+	public static function select()
+	{
+		error_reporting(E_ALL);
+		ini_set('display_errors', 'on');
+		$query = self::getConnection()->query("select * from Account;");
+		while ($row = $query->fetch_assoc())
+		{
+			var_dump($row);
+			echo "<br>";
+		}
+	}
 }

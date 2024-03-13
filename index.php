@@ -2,6 +2,8 @@
 
 require './DBC.php';
 
+//DBC::select();
+
 session_start();
 
 echo '
